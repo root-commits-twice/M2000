@@ -35,11 +35,8 @@ def window_ui():
             word_guess = values['_word_']
             operations = values['_ops_']
             correct = 0
-            print("Starting")
             start_time = time.time()
             start_op = operations
-            if word_guess.isdigit():
-                print("Can't compute")
             if operations.isdigit():
                 while int(operations) != -1:
                     ai_word = ""
@@ -54,9 +51,6 @@ def window_ui():
                             correct = x + 1
                     else:
                         elapsed_time = time.time() - start_time
-                        print("\n")
-                        print("Finished")
-                        print(elapsed_time)
                         elapsed_time_mis = elapsed_time * 1000000
                         elapsed_time_ms = elapsed_time_mis / 1000
                         elapsed_time_s = elapsed_time_ms / 1000
@@ -72,8 +66,6 @@ def window_ui():
                                                                            round(elapsed_time_s, 5), format(correct, ','),
                                                                            word_guess)
                         window.FindElement('_output_').Update(output)
-            else:
-                print("Can't compute")
 
     window.close()
 
